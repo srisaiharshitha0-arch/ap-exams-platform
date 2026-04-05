@@ -28,12 +28,14 @@ body {
 .main-content {
   min-height: 100vh;
   padding: 2rem 0;
+   background-color: var(--secondary-color);
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+  width: 100%;
 }
 
 .btn {
@@ -133,5 +135,34 @@ body {
 @media (max-width: 768px) {
   .main-content {
     padding: 1rem 0;
+  }
+
+  .container {
+    padding: 0 0.75rem; /* ← mobile padding */
+  }
+
+  .btn {
+    font-size: 0.8rem; /* ← mobile button size */
+    padding: 0.45rem 0.85rem;
+  }
+
+  .form-input {
+    font-size: 1rem; /* ← mobile lo zoom avoid cheyyadaniki */
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.5rem; /* ← small phones */
+  }
+
+  .btn {
+    width: 100%; /* ← full width buttons on small screens */
+    text-align: center;
+  }
+
+  .navbar-menu .btn {
+    width: auto;
+    text-align: left;
   }
 }
