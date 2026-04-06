@@ -198,7 +198,7 @@ const AdminPanel = () => {
                   <input type="text" name="eligibility" value={formData.eligibility} onChange={handleChange} className="form-input" />
                 </div>
                 <div className="form-group">
-                  <label className="form-label">Last Date</label>
+                  <label className="form-label">Expected Date</label>
                   <input type="text" name="lastDate" value={formData.lastDate} onChange={handleChange} className="form-input" placeholder="e.g. 2026 / July 2026 / 20 July 2026" />
                 </div>
               </div>
