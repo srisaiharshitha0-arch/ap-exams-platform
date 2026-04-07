@@ -25,6 +25,9 @@ const examSchema = new mongoose.Schema({
   lastDate: {
     type: String
   },
+  notificationDate: {
+    type: String
+  },
   examType: {
     type: String,
     enum: ['present', 'upcoming'],

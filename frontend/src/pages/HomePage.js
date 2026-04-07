@@ -8,21 +8,21 @@ const HomePage = () => {
   const { user } = useAuth();
 
   if (user) {
-    return <Navigate to="/exams" />;
+    return <Navigate to="/jobs" />;
   }
 
   const features = [
     {
-      title: "Easy Navigation",
-      description: "Find Andhra Pradesh government exam categories quickly in one place."
+      title: "All Jobs in One Place",
+      description: "Find Government and Private job opportunities including IT, Banking, Railways, Police and more."
     },
     {
-      title: "Official Sources",
-      description: "Every exam card redirects users to the official government recruitment website."
+      title: "Official & Trusted Links",
+      description: "Every job or exam redirects you to the official website for safe and secure applications."
     },
     {
-      title: "User Friendly",
-      description: "Clean interface designed to help users explore exam opportunities easily."
+      title: "Quick & Easy Search",
+      description: "Search and filter jobs easily by category, company or job type without confusion."
     }
   ];
 
@@ -31,8 +31,8 @@ const HomePage = () => {
 
       <div className="announcement-bar">
         <div className="announcement-track">
-          <span>Latest Updates: APPSC Notifications | Police Recruitment | Teaching Exams | Banking Exams | Official Government Links</span>
-          <span>Latest Updates: APPSC Notifications | Police Recruitment | Teaching Exams | Banking Exams | Official Government Links</span>
+          <span>Latest Updates: IT Jobs | Banking Jobs | Railway Recruitment | Police Jobs | Teaching Jobs | Private Jobs</span>
+          <span>Latest Updates: IT Jobs | Banking Jobs | Railway Recruitment | Police Jobs | Teaching Jobs | Private Jobs</span>
         </div>
       </div>
 
@@ -40,26 +40,31 @@ const HomePage = () => {
 
         <section className="hero-section">
           <div className="homepage-header">
-            <span className="hero-badge">Andhra Pradesh Government Exams</span>
-            <h1 className="homepage-title">Welcome to AP Job Exams Portal</h1>
+            <span className="hero-badge">All Jobs & Exams Portal</span>
+
+            <h1 className="homepage-title">
+              Find Your  Job Opportunity Easily
+            </h1>
+
             <p className="homepage-subtitle">
-              Discover Andhra Pradesh government exam categories in one place
-              and easily access official recruitment websites.
+              Discover Government and Private jobs including IT, Banking, Railways,
+              Police, Teaching and more — all in one place with official application links.
             </p>
           </div>
 
           <div className="hero-stats">
-            <div className="stat-card"><h3>Official</h3><p>Government Sources</p></div>
-            <div className="stat-card"><h3>100%</h3><p>Verified Links</p></div>
-            <div className="stat-card"><h3>Fast</h3><p>Exam Discovery</p></div>
+            <div className="stat-card"><h3>All Categories</h3><p>Jobs & Exams</p></div>
+            <div className="stat-card"><h3>100%</h3><p>Official Links</p></div>
+            <div className="stat-card"><h3>Fast</h3><p>Job Discovery</p></div>
           </div>
         </section>
 
         <section className="home-section">
           <div className="section-header">
             <h2>Why Use This Platform?</h2>
-            <p>A simple portal created to help students discover government exam categories faster and easier.</p>
+            <p>A simple and powerful platform to discover job opportunities faster without searching multiple websites.</p>
           </div>
+
           <div className="features-grid">
             {features.map((item) => (
               <div key={item.title} className="feature-card">
@@ -74,10 +79,15 @@ const HomePage = () => {
 
       <footer className="footer">
         <div className="footer-container">
+
           <div className="footer-left">
-            <h3>AP Exams Portal</h3>
-            <p>A platform to explore Andhra Pradesh government exam categories and access official recruitment websites in one place.</p>
+            <h3>Job Portal</h3>
+            <p>
+              A unified platform to explore Government and Private job opportunities
+              and access official application websites in one place.
+            </p>
           </div>
+
           <div className="footer-links">
             <h4>Quick Links</h4>
             <ul>
@@ -86,10 +96,15 @@ const HomePage = () => {
               <li>Register</li>
             </ul>
           </div>
+
           <div className="footer-info">
             <h4>Information</h4>
-            <p>This website does not host recruitment notifications. It only provides links to official government websites.</p>
+            <p>
+              This website does not host job notifications. It only provides links
+              to official recruitment websites.
+            </p>
           </div>
+
           <div className="footer-contact">
             <h4>Contact Us</h4>
             <p>Have a query? Reach out to us:</p>
@@ -97,8 +112,10 @@ const HomePage = () => {
               srisaiharshitha0@gmail.com
             </a>
           </div>
+
         </div>
-        <div className="footer-bottom">© 2026 AP Exams Portal</div>
+
+        <div className="footer-bottom">© 2026 Job Portal</div>
       </footer>
 
     </div>

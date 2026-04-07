@@ -6,36 +6,27 @@ import "./ExamCard.css";
 
 const formatSmartDate = (dateStr) => {
   if (!dateStr) return "Not specified";
-
   const str = dateStr.trim();
 
-  // Only year: "2026"
-  if (/^\d{4}$/.test(str)) {
-    return str;
-  }
+  if (/^\d{4}$/.test(str)) return str;
 
-  // YYYY-MM format: "2026-07"
   if (/^\d{4}-\d{2}$/.test(str)) {
     const [year, month] = str.split("-");
     return new Date(year, month - 1).toLocaleDateString("en-IN", {
-      year: "numeric",
-      month: "short",
+      year: "numeric", month: "short",
     });
   }
 
-  // "Month YYYY" format: "July 2026" - no day
   if (/^[A-Za-z]+\s+\d{4}$/.test(str)) {
     return new Date(str).toLocaleDateString("en-IN", {
-      year: "numeric",
-      month: "short",
+      year: "numeric", month: "short",
     });
   }
 
-  // Full date: "20 July 2026" or "2026-07-20"
-  return new Date(str).toLocaleDateString("en-IN", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
+  const parsed = new Date(str);
+  if (isNaN(parsed)) return str; // ✅ Invalid date ఐతే as-is చూపిస్తుంది
+  return parsed.toLocaleDateString("en-IN", {
+    year: "numeric", month: "short", day: "numeric",
   });
 };
 
@@ -44,10 +35,11 @@ const ExamCard = ({ exam, onSaveToggle }) => {
   const [isSaved, setIsSaved] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    checkIfSaved();
-  }, [exam._id, isAuthenticated]);
 
+useEffect(() => {
+    checkIfSaved();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [exam._id, isAuthenticated]);
   const checkIfSaved = async () => {
     if (!isAuthenticated) return;
     try {
@@ -75,15 +67,16 @@ const ExamCard = ({ exam, onSaveToggle }) => {
         setIsSaved(true);
         toast.success("Exam saved successfully");
       }
-      if (onSaveToggle) {
-        onSaveToggle();
-      }
+      if (onSaveToggle) onSaveToggle();
     } catch (error) {
       toast.error("Error saving exam");
     } finally {
       setLoading(false);
     }
   };
+
+  // ✅ CHANGE — upcoming exams కి "Expected Date", present కి "Last Date"
+  const dateLabel = exam.examType === 'upcoming' ? 'Expected Date' : 'Last Date';
 
   return (
     <div className="exam-card">
@@ -101,7 +94,7 @@ const ExamCard = ({ exam, onSaveToggle }) => {
         </p>
 
         <p className="exam-date">
-          <strong>Last Date:</strong>{" "}
+          <strong>{dateLabel}:</strong>{" "}
           <span className="last-date">
             {formatSmartDate(exam.lastDate)}
           </span>
@@ -109,21 +102,11 @@ const ExamCard = ({ exam, onSaveToggle }) => {
       </div>
 
       <div className="exam-actions">
-        <a
-          href={exam.officialLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-primary"
-        >
+        <a href={exam.officialLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
           Visit Official Website
         </a>
-
         {isAuthenticated && (
-          <button
-            onClick={handleSaveToggle}
-            disabled={loading}
-            className={`btn ${isSaved ? "btn-danger" : "btn-secondary"}`}
-          >
+          <button onClick={handleSaveToggle} disabled={loading} className={`btn ${isSaved ? "btn-danger" : "btn-secondary"}`}>
             {loading ? "Loading..." : isSaved ? "Remove" : "Save"}
           </button>
         )}
