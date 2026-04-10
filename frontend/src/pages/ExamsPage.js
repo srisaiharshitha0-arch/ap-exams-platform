@@ -68,10 +68,10 @@ const ExamsPage = () => {
 
       <div className="homepage-header">
         <h1 className="homepage-title">
-          Explore Government Exams & Opportunities
+         We Find the Opportunities. You Grab Them.
         </h1>
         <p className="homepage-subtitle">
-          Browse AP Government exam categories and visit official recruitment websites.
+          Discover exams, explore job opportunities, and take the next step in your career.
         </p>
       </div>
 

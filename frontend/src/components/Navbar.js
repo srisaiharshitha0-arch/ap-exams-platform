@@ -30,7 +30,7 @@ const Navbar = () => {
     <circle cx="54" cy="54" r="11" fill="#5b21b6" stroke="white" stroke-width="2.5"/>
     <circle cx="52" cy="52" r="6" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"/>
     <line x1="56.5" y1="56.5" x2="61" y2="61" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
-    <text x="98" y="46" font-family="'Trebuchet MS', Arial, sans-serif" font-size="28" font-weight="700" fill="#1e293b" letter-spacing="-0.5">CareerMap</text>
+    <text x="98" y="46" font-family="'Trebuchet MS', Arial, sans-serif" font-size="28" font-weight="700" fill="#1e293b" letter-spacing="-0.5">CareerGateway</text>
     <rect x="98" y="52" width="44" height="3" rx="1.5" fill="#7c3aed"/>
     <text x="99" y="72" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8" letter-spacing="2">Discover Jobs That Fit You</text>
   </svg>
